@@ -6,13 +6,6 @@ import {
   AccordionContent,
 } from "@/components/ui/accordion";
 import { articlesFAQ } from "@/lib/bioinfo";
-import {
-  Atom as ReactIcon,
-  Code as NextjsIcon,
-  Cpu as NodeIcon,
-  Server as ExpressIcon,
-  Box as NestJsIcon,
-} from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Rabiyul Islam Articles - Tech FAQ",
@@ -24,15 +17,6 @@ export const metadata: Metadata = {
       "Technical FAQ about modern frontend and backend technologies.",
     images: "/images/articles-og-image.jpg",
   },
-};
-
-// Add icon & gradient mapping
-const techIcons: Record<string, any> = {
-  React: ReactIcon,
-  "Next.js": NextjsIcon,
-  "Node.js": NodeIcon,
-  Express: ExpressIcon,
-  NestJS: NestJsIcon,
 };
 
 const techGradients: Record<string, string> = {

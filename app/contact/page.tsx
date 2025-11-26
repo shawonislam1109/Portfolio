@@ -8,14 +8,20 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 
+interface IFormState {
+  name: string;
+  email: string;
+  message: string;
+}
+
 const Contact = () => {
-  const [form, setForm] = useState({
+  const [form, setForm] = useState<IFormState>({
     name: "",
     email: "",
     message: "",
   });
 
-  const [errors, setErrors] = useState({
+  const [errors, setErrors] = useState<IFormState>({
     name: "",
     email: "",
     message: "",
@@ -24,7 +30,7 @@ const Contact = () => {
   const [loading, setLoading] = useState(false);
 
   const validate = () => {
-    let newErrors: any = {};
+    const newErrors: IFormState = { name: "", email: "", message: "" };
     let valid = true;
 
     // Name validation
@@ -60,14 +66,16 @@ const Contact = () => {
     return valid;
   };
 
-  const handleChange = (e: any) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setForm({ ...form, [e.target.name]: e.target.value });
 
     // remove live error
     setErrors({ ...errors, [e.target.name]: "" });
   };
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     // validate before submit
@@ -106,7 +114,7 @@ const Contact = () => {
         <CardHeader>
           <CardTitle className="text-2xl text-neutral-900 dark:text-white flex items-center gap-3">
             <Mail className="h-7 w-7 text-blue-500" />
-            Let's Connect
+            Let&apos;s Connect
           </CardTitle>
         </CardHeader>
 

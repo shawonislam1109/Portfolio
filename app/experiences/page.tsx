@@ -1,7 +1,7 @@
 // app/experience/page.tsx
 
 import { Metadata } from "next";
-import { Briefcase, Code, Server, Rocket } from "lucide-react";
+import { Briefcase } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 
 export const metadata: Metadata = {

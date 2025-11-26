@@ -24,7 +24,7 @@ const Logo = () => {
           transition: { duration: 1, repeat: Infinity },
         }}
       >
-        CB
+        RI
       </motion.a>
     </div>
   );

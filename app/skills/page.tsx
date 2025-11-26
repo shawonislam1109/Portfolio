@@ -1,20 +1,6 @@
 import { Metadata } from "next";
 import { Badge } from "@/components/ui/badge";
-import {
-  Code,
-  Layers,
-  Server,
-  Package,
-  Flame,
-  Wrench,
-  GitBranch,
-  Docker,
-  Rabbit,
-  Cpu,
-  PenTool,
-  Users,
-  Lightbulb,
-} from "lucide-react";
+import { Code, Server, Wrench, Lightbulb } from "lucide-react";
 import React from "react";
 
 export const metadata: Metadata = {
