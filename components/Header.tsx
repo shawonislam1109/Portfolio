@@ -29,7 +29,7 @@ const Header = () => {
         <nav className="hidden sm:flex gap-6">
           <CustomLink href="/" title="Home" />
           <CustomLink href="/about" title="About" />
-          <CustomLink href="/project" title="Project" />
+          <CustomLink href="/projects" title="Projects" />
           <CustomLink href="/skills" title="Skills" />
           <CustomLink href="/experiences" title="Experiences" />
           <CustomLink href="/article" title="Article" />
@@ -92,7 +92,7 @@ const Header = () => {
               <nav className="flex flex-col gap-4">
                 <CustomLink href="/" title="Home" />
                 <CustomLink href="/about" title="About" />
-                <CustomLink href="/project" title="Project" />
+                <CustomLink href="/projects" title="Projects" />
                 <CustomLink href="/skills" title="Skills" />
                 <CustomLink href="/experiences" title="Experiences" />
                 <CustomLink href="/article" title="Article" />

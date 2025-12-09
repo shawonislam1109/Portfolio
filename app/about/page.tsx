@@ -2,6 +2,7 @@ import AnimatedText from "@/components/AnimatedText";
 import { Metadata } from "next";
 import React from "react";
 import AboutImage from "@/components/aboutImage";
+import { profileData } from "@/lib/bioinfo";
 
 export const metadata: Metadata = {
   title: "Rabiyul Islam About Page",
@@ -12,41 +13,6 @@ export const metadata: Metadata = {
     description:
       "A deep dive into Rabiyul Islam's journey, education, professional experience, and skills as a Full Stack Developer.",
     images: "/images/about-og-image.jpg",
-  },
-};
-
-const profileData = {
-  biography: [
-    "I am Rabiyul Islam, a passionate Full Stack Developer currently working at ShunnoIT in Rajshahi.",
-    "I specialize in building robust and scalable web applications using modern technologies including React, Next.js, Node.js, Express, NestJS, and MongoDB.",
-    "My work encompasses both frontend and backend development, focusing on clean, maintainable code and efficient workflows.",
-    "Beyond technical skills, I am highly motivated by problem-solving, continuous learning, and innovation.",
-    "I actively seek challenging projects that allow me to explore new technologies, optimize processes, and deliver impactful solutions for clients and users.",
-  ],
-  education: [
-    "Diploma in Engineering (Software Engineering) - Completed 2022",
-    "Continuous learning in modern web technologies and frameworks",
-  ],
-  skills: [
-    "Frontend: React, Next.js, TypeScript, TailwindCSS, ShadCN UI",
-    "Backend: Node.js, Express.js, NestJS, MongoDB, RESTful APIs, Microservices",
-    "Tools & Others: Git, Docker, Redis, RabbitMQ, CI/CD",
-    "Professional Practices: Clean Code, Agile Methodology, Testing, Project Management",
-  ],
-  attributes: [
-    "Problem solver and critical thinker",
-    "Passionate about learning and technology innovation",
-    "Team player with strong communication skills",
-    "Adaptable and quick learner",
-    "Detail-oriented and quality-focused",
-  ],
-  additionalInfo: {
-    languages: ["English (Fluent)", "Bangla (Native)"],
-    hobbies: ["Reading tech blogs", "Open-source contribution", "Traveling"],
-    certifications: [
-      "React Developer Certification",
-      "NestJS Backend Specialist",
-    ],
   },
 };
 

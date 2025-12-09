@@ -1,6 +1,7 @@
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { projects } from "@/lib/bioinfo";
 import { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Rabiyul Islam Projects",
@@ -17,10 +18,9 @@ export default function ProjectPage() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
         {projects.map((p, i) => (
-          <a
+          <Link
             key={i}
-            href={p.link}
-            target="_blank"
+            href={`/projects/${p.id}`}
             rel="noopener noreferrer"
             className="group relative block rounded-2xl p-[2px] hover:scale-[1.03] transition-all duration-300"
           >
@@ -47,11 +47,11 @@ export default function ProjectPage() {
                   {p.tech}
                 </p>
                 <span className="inline-block mt-2 px-4 py-2 rounded-lg font-semibold text-white bg-gradient-to-r from-blue-600 to-purple-600 shadow-md group-hover:shadow-xl">
-                  Visit Project →
+                  Details Project →
                 </span>
               </CardContent>
             </Card>
-          </a>
+          </Link>
         ))}
       </div>
     </div>

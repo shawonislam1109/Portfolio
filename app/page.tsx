@@ -51,7 +51,7 @@ export default function Home() {
         {/* Buttons */}
         <div className="flex flex-row sm:flex-row items-center lg:items-start gap-4 mt-6">
           {/* Resume button downloads CV */}
-          <a href="/flies/Rabiyul_Islam_cv.pdf" download>
+          <a href="/flies/Rabiyul_Islam_resume.pdf" download>
             <Button variant="outline" className="w-full sm:w-auto">
               Download Resume
             </Button>

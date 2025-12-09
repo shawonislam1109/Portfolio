@@ -9,6 +9,16 @@ import {
   Flame,
   Activity,
 } from "lucide-react";
+import silicon1 from "@/assets/silicon-1.png";
+import silicon2 from "@/assets/silicon-2.png";
+import silicon3 from "@/assets/silicon-3.png";
+import silicon4 from "@/assets/silicon-4.png";
+import portfolio1 from "@/assets/portolio-1.png";
+import portfolio2 from "@/assets/portfolio-2.png";
+import portfolio3 from "@/assets/portfolio-3.png";
+import billbd1 from "@/assets/billbd-1.png";
+import billbd2 from "@/assets/billbd-2.png";
+import billbd3 from "@/assets/billbd-3.png";
 
 const mySelf = {
   headerTitle: "Full Stack Developer",
@@ -23,25 +33,276 @@ const aboutInfo = {};
 const projects = [
   {
     title: "ISP Billing Software",
+    id: 1,
+    projectName: "ISP Billing Software",
     icon: Globe,
     description:
       "A complete ISP billing and client management system. Automates package management, router integration, bandwidth control, invoice generation, client notifications, and provides a real-time dashboard with analytics. Ideal for ISPs to monitor and optimize operations efficiently.",
-    tech: "React, Next.js, TypeScript, Node.js, Express, MongoDB, MikroTik API, ShadCN UI",
+    tech: "React, Tailwind Css, TypeScript, Node.js, Nest js , MongoDB, MikroTik API",
     link: "https://billing.siliconisp.com/",
+    children: {
+      images: [silicon1, silicon2, silicon3, silicon4],
+      projectName: "Silicon ISP Management System",
+      description:
+        "A complete ISP management platform including hotspot, network, inventory, billing, and client management with real-time monitoring and multi-branch support.",
+      technologies: [
+        "Tailwind CSS",
+        "React",
+        "Redux",
+        "RTK Query",
+        "NestJS",
+        "MongoDB",
+        "TypeScript",
+        "MikroTik API",
+      ],
+      features: [
+        {
+          title: "Feature 1: PPPoe Management",
+          subFeatures: [
+            "Automated PPPoE Client Creation: Create PPPoE clients with unique usernames and passwords, assign packages, and set bandwidth limits automatically.",
+            "Real-Time Speed Monitoring: Monitor client connection speeds in real-time, view online/offline status, and track data usage.",
+            "MikroTik Integration: Seamlessly integrate with MikroTik routers for efficient PPPoE management and configuration.",
+            "Bulk Client Operations: Perform bulk operations such as client creation, package assignment, and data limit updates for efficient management.",
+          ],
+        },
+        {
+          title: "Feature 2: Hotspot Management",
+          subFeatures: [
+            "Card Generation: Generate top-up cards with unique ID and PIN. Create cards with specified data limits.",
+            "Card Recharge System: Allow clients to log in using their ID and PIN to recharge manually. Track expiration times and data limits.",
+            "Hotspot Package Creation: Create customizable packages with specified pool/IP profiles.",
+            "Package Assignment: Assign packages during client creation or card generation.",
+            "Self-Branding Login Page: Customize the client login page with your ISP’s branding.",
+            "Customer Self-Signup: Enable customers to sign up and make payments online, including OTP verification for added security.",
+            "Distributor Panel: Manage card distribution with a reseller-like interface for hotspot clients.",
+            "Client Portal: Provide clients with a portal to view their package details, remaining data, expiration dates, and more.",
+          ],
+        },
+        {
+          title: "Feature 3: Network Configuration",
+          subFeatures: [
+            "Mikrotik Configuration: Securely configure Mikrotik routers with integrated API support.",
+            "OLT Configuration: Manage and configure Optical Line Terminals (OLT).",
+            "Real-Time User Sync: Synchronize user data with Mikrotik information in real-time.",
+            "PPPoE and Hotspot Management: Handle both PPPoE and Hotspot configurations seamlessly.",
+            "Automated Mikrotik Server Backup: Schedule daily backups of your Mikrotik server to ensure data safety.",
+          ],
+        },
+        {
+          title: "Feature 4: Network Diagram & Monitoring",
+          subFeatures: [
+            "Google Map Integration: Visualize your entire network on Google Maps with detailed fiber rod and core color mapping.",
+            "Real-Time Monitoring: Track the status of network devices and clients in real-time, receiving alerts for any changes.",
+            "Device Location Mapping: Set and edit device locations on the map, including fiber rods and client ONUs.",
+            "Reseller Customer Integration: Add reseller customers to the network diagram for comprehensive network management.",
+          ],
+        },
+        {
+          title: "Feature 5: Inventory Management",
+          subFeatures: [
+            "Total Inventory Solution: Manage all products with detailed information including serial numbers and barcodes.",
+            "Vendor and Customer Management: Keep detailed records of vendors and customers.",
+            "Purchase and Sale Management: Track product purchases, sales, stock, and supply management.",
+            "Warranty and Assets Management: Check product warranties by serial number and manage company assetss efficiently.",
+            "Instrument and Fiber Stock: Monitor stock summaries, including individual instruments and fiber/cable pieces.",
+            "Damage Product List: Keep a record of damaged products for accountability.",
+          ],
+        },
+        {
+          title: "Feature 6: SMS/Email Module",
+          subFeatures: [
+            "Automated Notifications: Send automated SMS and email notifications for payment due, invoices, and other important updates.",
+            "Promotional and Emergency Announcements: Notify clients about promotions and emergencies.",
+            "Custom SMS Templates: Create and manage SMS templates for recurring messages.",
+            "Payment Links and Package Changes: Send payment links and notifications for package changes via SMS.",
+          ],
+        },
+        {
+          title: "Feature 7: Configuration Settings",
+          subFeatures: [
+            "Box/Zone/SubZone Settings: Customize network settings including zones and connection types.",
+            "Client and Billing Type Configuration: Define client types (e.g., home, corporate) and billing types (e.g., prepaid, postpaid).",
+            "Responsive UI: Customize the user interface for client and admin portals, including language and theme settings.",
+            "Invoice and Report Customization: Set invoice formats and report periods for better financial management.",
+          ],
+        },
+        {
+          title: "Feature 8: Branch Management",
+          subFeatures: [
+            "Multi-Branch Control: Super Merchants can manage multiple branches with individual credentials for each branch.",
+            "Report Generation: Generate comprehensive reports for each branch to track performance and financial health.",
+          ],
+        },
+        {
+          title: "Feature 9: Dynamic Dashboard",
+          subFeatures: [
+            "Informative Graphs and Reports: Access various graphs and reports for client status, payments, problem tracking, and more.",
+            "Real-Time Monitoring: View real-time data on online clients, income, expenses, and other key metrics.",
+            "Monthly Tracking: Track monthly new clients, income, expenses, and performance metrics.",
+          ],
+        },
+        {
+          title: "Feature 10: Payment Gateway Settings",
+          subFeatures: [
+            "Multiple Payment Gateway Integration: Integrate with various payment gateways like Bkash, Nogod, Rocket, and SSL for secure transactions.",
+            "Transaction Fee Settings: Configure processing fees for different payment methods.",
+          ],
+        },
+        {
+          title: "Feature 11: Role-Based Access Control",
+          subFeatures: [
+            "User Role Configuration: Define and assign roles with specific permissions for different users (e.g., admin, manager, staff).",
+            "Secure Business Management: Ensure confidentiality and proper access control within the organization.",
+          ],
+        },
+        {
+          title: "Feature 12: Accounts Management",
+          subFeatures: [
+            "Expense Tracking: Track daily, weekly, monthly, and yearly expenses by category and employee.",
+            "Vendor Payments: Manage payments to vendors and agents.",
+            "Financial Records: Keep comprehensive records of all financial transactions.",
+            "Profit and Loss Calculation: Automatically calculate profit or loss.",
+            "Balance Sheet and Income Statement: Generate and print financial reports.",
+          ],
+        },
+        {
+          title: "Feature 13: Client Management",
+          subFeatures: [
+            "Comprehensive Client Profiles: Manage detailed client profiles with real-time speed and connection monitoring.",
+            "Bulk Operations: Perform bulk operations for efficient client management.",
+            "Information Sync with Mikrotik: Synchronize client information with Mikrotik for seamless management.",
+            "Client Information Download: Download client information in various formats (PDF, Excel, CSV).",
+          ],
+        },
+      ],
+    },
+
     color: "text-blue-500",
   },
   {
     title: "Utility Bill Management System (BillBD)",
     icon: Zap,
+    id: 2,
+    projectName: "Utility Bill Management System (BillBD)",
     description:
       "A modern utility bill management platform designed to streamline monthly billing cycles, automate calculations, manage user roles, and provide admin dashboards with insightful analytics. Ensures secure, scalable, and efficient utility operations.",
-    tech: "NestJS, TypeScript, MongoDB, JWT, Clean Architecture",
+    tech: "React, Tailwind Css, TypeScript, Node.js, Nest js , MongoDB,",
     link: "https://app.billbd.com/",
+    children: {
+      images: [billbd1, billbd2, billbd3],
+      projectName: "Silicon ISP Management System",
+      description:
+        "A complete ISP management platform including hotspot, network, inventory, billing, and client management with real-time monitoring and multi-branch support.",
+      technologies: [
+        "Tailwind CSS",
+        "React",
+        "Redux",
+        "RTK Query",
+        "NestJS",
+        "MongoDB",
+        "TypeScript",
+      ],
+      features: [
+        {
+          title: "Feature 1: Monthly Billing Cycle Automation",
+          subFeatures: [
+            "Automated Bill Generation: Automatically generate monthly utility bills for all customers based on their usage data.",
+            "Customizable Billing Cycles: Define and manage different billing cycles (monthly, quarterly, yearly) for various customer segments.",
+            "Usage Data Integration: Seamlessly integrate with utility meters to fetch real-time usage data for accurate billing.",
+          ],
+        },
+        {
+          title: "Feature 2: SMS/Email Module",
+          subFeatures: [
+            "Automated Notifications: Send automated SMS and email notifications for payment due, invoices, and other important updates.",
+            "Promotional and Emergency Announcements: Notify clients about promotions and emergencies.",
+            "Custom SMS Templates: Create and manage SMS templates for recurring messages.",
+            "Payment Links and Package Changes: Send payment links and notifications for package changes via SMS.",
+          ],
+        },
+
+        {
+          title: "Feature 3: Dynamic Dashboard",
+          subFeatures: [
+            "Informative Graphs and Reports: Access various graphs and reports for client status, payments, problem tracking, and more.",
+            "Real-Time Monitoring: View real-time data on online clients, income, expenses, and other key metrics.",
+            "Monthly Tracking: Track monthly new clients, income, expenses, and performance metrics.",
+          ],
+        },
+        {
+          title: "Feature 4: Payment Gateway Settings",
+          subFeatures: [
+            "Multiple Payment Gateway Integration: Integrate with various payment gateways like Bkash, Nogod, Rocket, and SSL for secure transactions.",
+            "Transaction Fee Settings: Configure processing fees for different payment methods.",
+          ],
+        },
+        {
+          title: "Feature 5: Role-Based Access Control",
+          subFeatures: [
+            "User Role Configuration: Define and assign roles with specific permissions for different users (e.g., admin, manager, staff).",
+            "Secure Business Management: Ensure confidentiality and proper access control within the organization.",
+          ],
+        },
+        {
+          title: "Feature 6: Accounts Management",
+          subFeatures: [
+            "Expense Tracking: Track daily, weekly, monthly, and yearly expenses by category and employee.",
+            "Vendor Payments: Manage payments to vendors and agents.",
+            "Financial Records: Keep comprehensive records of all financial transactions.",
+            "Profit and Loss Calculation: Automatically calculate profit or loss.",
+            "Balance Sheet and Income Statement: Generate and print financial reports.",
+          ],
+        },
+        {
+          title: "Feature 7: Client Management",
+          subFeatures: [
+            "Comprehensive Client Profiles: Manage detailed client profiles with real-time speed and connection monitoring.",
+            "Bulk Operations: Perform bulk operations for efficient client management.",
+            "Information Sync with Mikrotik: Synchronize client information with Mikrotik for seamless management.",
+            "Client Information Download: Download client information in various formats (PDF, Excel, CSV).",
+          ],
+        },
+      ],
+    },
     color: "text-yellow-400",
   },
+
   {
     title: "Personal Portfolio Website",
     icon: Layout,
+    id: 3,
+    projectName: "Personal Portfolio Website",
+    children: {
+      images: [portfolio1, portfolio2, portfolio3],
+      projectName: "Personal Portfolio Website",
+      description:
+        "A clean, responsive, and visually appealing personal portfolio website showcasing professional projects and skills. Features dark/light theme, SEO optimization, interactive components, and smooth animations.",
+      technologies: [
+        "Next js",
+        "shadcn UI",
+        "TypeScript",
+        "Tailwind CSS",
+        "Meta api",
+        "Vimeo API",
+      ],
+      features: [
+        {
+          title: "Feature 1: Meta Api Integration",
+          subFeatures: [
+            "Integrated Meta Api for seamless communication with Meta services.",
+            "Automated handling of Meta-related tasks within the portfolio website.",
+            "Instagram Api Integration: Fetch and display Instagram posts dynamically.",
+          ],
+        },
+        {
+          title: "Feature 2: Vimeo Api Integration",
+          subFeatures: [
+            " Integrated Vimeo Api to showcase video content effectively.",
+            " Smooth video playback and management using Vimeo's robust platform.",
+          ],
+        },
+      ],
+    },
     description:
       "A clean, responsive, and visually appealing personal portfolio website showcasing professional projects and skills. Features dark/light theme, SEO optimization, interactive components, and smooth animations.",
     tech: "Next.js, Tailwind CSS, ShadCN UI, TypeScript",
@@ -217,4 +478,40 @@ const articlesFAQ = [
   },
 ];
 
-export { mySelf, aboutInfo, projects, articlesFAQ };
+const profileData = {
+  biography: [
+    "I am Rabiyul Islam, a passionate Full Stack Developer currently working at ShunnoIT in Rajshahi.",
+    "I specialize in building robust and scalable web applications using modern technologies including React, Next.js, Node.js, Express, NestJS, and MongoDB.",
+    "My work encompasses both frontend and backend development, focusing on clean, maintainable code and efficient workflows.",
+    "Beyond technical skills, I am highly motivated by problem-solving, continuous learning, and innovation.",
+    "I actively seek challenging projects that allow me to explore new technologies, optimize processes, and deliver impactful solutions for clients and users.",
+  ],
+  education: [
+    "Diploma in Engineering (Software Engineering) - Completed 2022",
+    "North bengal international university - Ongoing BSc in Computer Science and Engineering",
+    "Continuous learning in modern web technologies and frameworks",
+  ],
+  skills: [
+    "Frontend: React, Next.js, TypeScript, TailwindCSS, ShadCN UI",
+    "Backend: Node.js, Express.js, NestJS, MongoDB, RESTful APIs, Microservices",
+    "Tools & Others: Git, Docker, Redis, RabbitMQ, CI/CD",
+    "Professional Practices: Clean Code, Agile Methodology, Testing, Project Management",
+  ],
+  attributes: [
+    "Problem solver and critical thinker",
+    "Passionate about learning and technology innovation",
+    "Team player with strong communication skills",
+    "Adaptable and quick learner",
+    "Detail-oriented and quality-focused",
+  ],
+  additionalInfo: {
+    languages: ["English (Fluent)", "Bangla (Native)"],
+    hobbies: ["Reading tech blogs", "Open-source contribution", "Traveling"],
+    certifications: [
+      "React Developer Certification",
+      "NestJS Backend Specialist",
+    ],
+  },
+};
+
+export { mySelf, aboutInfo, projects, articlesFAQ, profileData };
