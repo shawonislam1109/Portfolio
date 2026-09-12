@@ -1,36 +1,5 @@
 "use client";
 import Link from "next/link";
-import { usePathname } from "next/navigation"; // Import usePathname from next/navigation
-
-interface CustomLinkProps {
-  href: string;
-  title: string;
-  className?: string;
-}
-
-const CustomLink: React.FC<CustomLinkProps> = ({
-  href,
-  title,
-  className = "",
-}) => {
-  // Get the current pathname using usePathname
-  const pathname = usePathname();
-
-  // Check if the current route matches the href
-  const isActive = pathname === href;
-
-  return (
-    <Link href={href} className={`relative group ${className}`}>
-      {title}
-      <span
-        className={`h-[1px] inline-block w-0 bg-fuchsia-400 dark:bg-fuchsia-400 absolute left-0 -bottom-1.5 group-hover:w-full transition-[width] ease duration-300 ${
-          isActive ? "w-full" : ""
-        }`}
-      >
-        &nbsp;
-      </span>
-    </Link>
-  );
-};
-
+import { usePathname } from "next/navigation";
+const CustomLink = ({ href, title, className = "" }: { href: string; title: string; className?: string }) => { const active = usePathname() === href; return <Link href={href} className={`group relative text-sm transition-colors hover:text-white ${active ? "text-white" : "text-slate-400"} ${className}`}>{title}<span className={`absolute -bottom-2 left-0 h-px bg-primary transition-all duration-300 ${active ? "w-full" : "w-0 group-hover:w-full"}`} /></Link>; };
 export default CustomLink;

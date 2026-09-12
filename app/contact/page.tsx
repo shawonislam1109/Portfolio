@@ -105,14 +105,12 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white dark:bg-neutral-900 p-6 flex flex-col items-center transition-colors">
-      <h1 className="text-4xl font-bold text-neutral-900 dark:text-white my-10 text-center">
-        Contact Me
-      </h1>
+    <div className="min-h-screen py-8 transition-colors">
+      <div className="mb-12"><p className="eyebrow">Get in touch</p><h1 className="page-heading">Let&apos;s make something excellent.</h1><p className="page-copy">Have a project in mind, or just want to connect? I&apos;d love to hear from you.</p></div>
 
-      <Card className="w-full max-w-2xl bg-neutral-100 dark:bg-neutral-800 p-6 rounded-2xl shadow-xl border-none">
+      <Card className="glass w-full max-w-2xl rounded-3xl p-6">
         <CardHeader>
-          <CardTitle className="text-2xl text-neutral-900 dark:text-white flex items-center gap-3">
+          <CardTitle className="flex items-center gap-3 text-2xl text-white">
             <Mail className="h-7 w-7 text-blue-500" />
             Let&apos;s Connect
           </CardTitle>

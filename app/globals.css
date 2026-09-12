@@ -2,66 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 @layer base {
-:root {
-  --background: 240, 12%, 98%;
-  --foreground: 222, 47%, 11%;
-  --card: 0, 0%, 100%;
-  --card-foreground: 222, 47%, 11%;
-  --primary: 204, 86%, 53%;
-  --primary-foreground: 0, 0%, 100%;
-  --secondary: 204, 43%, 93%;
-  --secondary-foreground: 204, 86%, 53%;
-  --muted: 222, 14%, 83%;
-  --muted-foreground: 222, 47%, 11%;
-  --accent: 340, 82%, 52%;
-  --accent-foreground: 0, 0%, 100%;
-  --destructive: 0, 63%, 45%;
-  --destructive-foreground: 0, 0%, 100%;
-  --border: 222, 14%, 90%;
-  --input: 222, 14%, 90%;
-  --ring: 204, 86%, 53%;
-  --chart-1: 340, 82%, 52%;
-  --chart-2: 204, 86%, 53%;
-  --chart-3: 48, 89%, 60%;
-  --chart-4: 222, 47%, 11%;
-  --chart-5: 222, 14%, 83%;
-  --radius: 0.5rem;
+  :root { --background: 222 47% 7%; --foreground: 210 40% 96%; --card: 222 40% 10%; --card-foreground: 210 40% 96%; --popover: 222 40% 10%; --popover-foreground: 210 40% 96%; --primary: 177 82% 60%; --primary-foreground: 222 47% 8%; --secondary: 220 25% 16%; --secondary-foreground: 210 40% 96%; --muted: 220 21% 18%; --muted-foreground: 215 20% 68%; --accent: 278 88% 72%; --accent-foreground: 222 47% 8%; --destructive: 0 72% 60%; --destructive-foreground: 0 0% 100%; --border: 218 23% 19%; --input: 218 23% 19%; --ring: 177 82% 60%; --radius: 1rem; }
+  .dark { --background: 222 47% 7%; --foreground: 210 40% 96%; }
+  * { @apply border-border; }
+  html { scroll-behavior: smooth; }
+  body { @apply bg-background text-foreground antialiased; background-image: radial-gradient(circle at 12% 5%, rgba(60, 230, 210, .12), transparent 25rem), radial-gradient(circle at 90% 35%, rgba(159, 98, 255, .13), transparent 30rem); }
+  ::selection { background: rgba(73, 226, 211, .35); color: white; }
 }
-
-  .dark {
-    --background: 0 0% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
-    --secondary: 0 0% 14.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 0 0% 14.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 0 0% 83.1%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%
-  }
+@layer components {
+  .site-shell { @apply relative mx-auto w-full max-w-[1440px] px-5 pb-10 pt-24 sm:px-8 lg:px-14 lg:pt-28; }
+  .glass { @apply border border-white/10 bg-white/[0.035] backdrop-blur-xl; box-shadow: 0 25px 70px rgba(0,0,0,.22); }
+  .eyebrow { @apply mb-4 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] text-primary; }
+  .eyebrow::before { content: ""; @apply h-2 w-2 rounded-full bg-primary shadow-[0_0_16px_rgba(74,222,200,.9)]; }
+  .page-heading { @apply text-4xl font-semibold tracking-[-0.045em] text-white sm:text-5xl lg:text-6xl; }
+  .page-copy { @apply mt-5 max-w-2xl text-base leading-7 text-slate-400; }
 }
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-}
-
+@keyframes drift { 0%, 100% { transform: translate3d(0,0,0) } 50% { transform: translate3d(0,-16px,0) } }
+.animate-drift { animation: drift 7s ease-in-out infinite; }
 

@@ -1,107 +1,11 @@
-// app/experience/page.tsx
-
 import { Metadata } from "next";
-import { Briefcase } from "lucide-react";
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-
-export const metadata: Metadata = {
-  title: "Experience | Rabiyul Islam",
-  description:
-    "Professional work experience of Rabiyul Islam, Full Stack Developer at Shunno IT.",
-};
-
-const experiences = [
-  {
-    company: "Shunno IT",
-    role: "Full Stack Developer",
-    period: "Aug 2023 — Present",
-    description:
-      "Working as a Full Stack Developer responsible for building production-grade software, maintaining systems, optimizing performance, and contributing to both frontend and backend features.",
-    highlights: [
-      "Developed ISP Billing Software using React, Node.js, Express.js & MongoDB.",
-      "Built Utility Bill Management System using NestJS (Microservices).",
-      "Integrated RabbitMQ for event-driven communication.",
-      "Created responsive UI with React + Tailwind + ShadCN components.",
-      "Worked with payment integrations and API communication.",
-      "Improved performance, caching, and optimized database queries.",
-    ],
-    tech: [
-      "React",
-      "Next.js",
-      "Node.js",
-      "Express.js",
-      "NestJS",
-      "MongoDB",
-      "TailwindCSS",
-      "ShadCN UI",
-      "RabbitMQ",
-      "Docker",
-    ],
-    icon: Briefcase,
-    gradient: "from-purple-500 to-indigo-500",
-  },
+import { ArrowUpRight, Boxes, BriefcaseBusiness, Check, Database, GitBranch, MonitorSmartphone, ServerCog } from "lucide-react";
+import Link from "next/link";
+export const metadata: Metadata = { title: "Experience", description: "Professional full stack development experience building business software at Shunno IT.", alternates: { canonical: "/experiences" } };
+const focusAreas = [
+  { title: "Product interfaces", icon: MonitorSmartphone, text: "Crafting responsive workflows and dashboards that make complicated operational tasks feel clear and efficient.", items: ["React, Next.js, TypeScript", "Tailwind CSS and ShadCN UI", "Responsive, accessible user flows"] },
+  { title: "Platform engineering", icon: ServerCog, text: "Developing the services and APIs behind real business products, with maintainability and performance in mind.", items: ["Node.js, Express, and NestJS", "REST APIs and microservices", "Caching and query optimization"] },
+  { title: "Connected systems", icon: GitBranch, text: "Making separate tools work together through reliable integration, events, and thoughtful data movement.", items: ["RabbitMQ event-driven flows", "Payment and third-party APIs", "MongoDB data modeling"] },
 ];
-
-export default function ExperiencePage() {
-  return (
-    <div className="min-h-screen bg-white dark:bg-neutral-900 px-6 py-12 transition-colors flex flex-col items-center">
-      <h1 className="text-5xl font-extrabold mb-14 text-neutral-900 dark:text-white text-center tracking-tight">
-        Work Experience
-      </h1>
-
-      <div className="w-full max-w-5xl space-y-10">
-        {experiences.map((exp, i) => (
-          <Card
-            key={i}
-            className="bg-neutral-100 dark:bg-neutral-800 border border-transparent shadow-lg rounded-3xl p-8 hover:shadow-2xl hover:border-purple-500/40 hover:-translate-y-2 transition-all duration-300"
-          >
-            <CardHeader className="mb-6">
-              <div
-                className={`p-4 rounded-xl bg-gradient-to-br ${exp.gradient} text-white shadow-md w-fit mb-4`}
-              >
-                <exp.icon className="h-8 w-8" />
-              </div>
-
-              <CardTitle className="text-3xl font-bold text-neutral-900 dark:text-white">
-                {exp.role}
-              </CardTitle>
-
-              <p className="text-neutral-700 dark:text-neutral-300 text-lg mt-1">
-                {exp.company} • {exp.period}
-              </p>
-            </CardHeader>
-
-            <CardContent>
-              <p className="text-neutral-800 dark:text-neutral-300 leading-relaxed mb-6">
-                {exp.description}
-              </p>
-
-              <h3 className="text-xl font-semibold mb-3 text-neutral-900 dark:text-white">
-                Key Contributions
-              </h3>
-              <ul className="list-disc ml-6 mb-6 space-y-2 text-neutral-700 dark:text-neutral-400">
-                {exp.highlights.map((h, idx) => (
-                  <li key={idx}>{h}</li>
-                ))}
-              </ul>
-
-              <h3 className="text-xl font-semibold mb-3 text-neutral-900 dark:text-white">
-                Technologies Used
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {exp.tech.map((t, idx) => (
-                  <span
-                    key={idx}
-                    className="px-3 py-1 rounded-lg bg-neutral-200 dark:bg-neutral-700 text-neutral-800 dark:text-neutral-200 text-sm font-medium"
-                  >
-                    {t}
-                  </span>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
-    </div>
-  );
-}
+const stack = ["React", "Next.js", "TypeScript", "Node.js", "Express", "NestJS", "MongoDB", "RabbitMQ", "Docker", "Tailwind CSS"];
+export default function ExperiencePage() { return <main className="min-h-screen py-8"><section className="grid gap-8 border-b border-white/10 pb-12 lg:grid-cols-[1.1fr_.9fr] lg:items-end"><div><p className="eyebrow">Professional experience</p><h1 className="page-heading">Building software<br/>that does real work.</h1><p className="page-copy">From business dashboards to the services behind them, I turn complicated operations into useful, dependable digital products.</p></div><div className="glass rounded-3xl p-6 sm:p-7"><div className="flex items-center justify-between"><span className="grid h-12 w-12 place-items-center rounded-2xl bg-primary/10 text-primary"><BriefcaseBusiness size={23}/></span><span className="rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">Currently active</span></div><h2 className="mt-6 text-2xl font-semibold text-white">Full Stack Developer</h2><p className="mt-2 text-slate-400">Shunno IT · Aug 2023 — Present</p><div className="mt-6 h-px bg-white/10"/><p className="mt-5 text-sm leading-6 text-slate-400">Contributing across the complete development cycle—from interface design and APIs to integrations and continuous improvements.</p></div></section><section className="mt-12"><div className="mb-7 flex flex-col justify-between gap-4 sm:flex-row sm:items-end"><div><p className="eyebrow">How I contribute</p><h2 className="text-3xl font-semibold tracking-tight text-white">Across the product stack.</h2></div><p className="max-w-sm text-sm leading-6 text-slate-400">Three connected areas of work that help products stay useful as they grow.</p></div><div className="grid gap-5 lg:grid-cols-3">{focusAreas.map((area, index) => { const Icon = area.icon; return <article key={area.title} className="glass group relative overflow-hidden rounded-3xl p-6 transition-all duration-500 hover:-translate-y-2 hover:border-primary/45"><span className="absolute right-6 top-6 text-xs font-bold tracking-[.15em] text-slate-600">0{index + 1}</span><span className="grid h-11 w-11 place-items-center rounded-xl bg-white/5 text-primary"><Icon size={21}/></span><h3 className="mt-7 text-xl font-semibold text-white">{area.title}</h3><p className="mt-3 text-sm leading-6 text-slate-400">{area.text}</p><ul className="mt-6 space-y-3 border-t border-white/10 pt-5">{area.items.map((item) => <li key={item} className="flex gap-2 text-sm text-slate-300"><Check size={15} className="mt-0.5 shrink-0 text-primary"/>{item}</li>)}</ul></article>; })}</div></section><section className="mt-14 grid gap-6 lg:grid-cols-[.85fr_1.15fr]"><div className="glass rounded-3xl p-7 sm:p-8"><p className="eyebrow">Selected work</p><h2 className="text-3xl font-semibold tracking-tight text-white">Business systems, made better.</h2><p className="mt-4 text-sm leading-7 text-slate-400">I&apos;ve helped build software for ISP operations and utility bill management—products that need accurate data, reliable automation, and an interface teams can actually use.</p><Link href="/projects" className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-cyan-200">Explore project work <ArrowUpRight size={17}/></Link></div><div className="glass rounded-3xl p-7 sm:p-8"><div className="flex items-center gap-3"><span className="grid h-10 w-10 place-items-center rounded-xl bg-violet-400/10 text-violet-300"><Boxes size={20}/></span><div><p className="text-sm font-semibold text-white">Technical toolkit</p><p className="text-xs text-slate-500">Tools used across delivery</p></div></div><div className="mt-7 flex flex-wrap gap-2">{stack.map((item) => <span key={item} className="rounded-xl border border-white/10 bg-black/15 px-3 py-2 text-sm text-slate-300 transition-colors hover:border-primary/40 hover:text-primary">{item}</span>)}</div><div className="mt-8 flex items-center gap-3 border-t border-white/10 pt-6 text-sm text-slate-400"><Database size={17} className="text-primary"/><span>Focused on clean data flows, dependable services, and maintainable code.</span></div></div></section></main>; }

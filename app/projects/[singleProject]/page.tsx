@@ -10,97 +10,131 @@ import {
 import { projects } from "@/lib/bioinfo";
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowUpRight, CheckCircle2 } from "lucide-react";
+import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ singleProject: string }>;
+}): Promise<Metadata> {
+  const { singleProject } = await params;
+  const project = projects.find((item) => item.id === Number(singleProject));
+  if (!project)
+    return {
+      title: "Project not found",
+      robots: { index: false, follow: false },
+    };
+  return {
+    title: project.title,
+    description: project.description,
+    alternates: { canonical: `/projects/${project.id}` },
+    openGraph: {
+      title: `${project.title} | Rabiyul Islam`,
+      description: project.description,
+      type: "article",
+      url: `/projects/${project.id}`,
+    },
+  };
+}
 export default async function Page({
   params,
 }: {
-  // Type: Promise<{ singleProject: string }>
   params: Promise<{ singleProject: string }>;
 }) {
-  // params ke await koro
   const { singleProject } = await params;
-
-  // Jodi ID number hisebe dorkar hoy (lookup er jonno)
-  const projectId = Number(singleProject);
-  const project = projects.find((p) => p.id === projectId)!;
-
+  const project = projects.find((p) => p.id === Number(singleProject));
+  if (!project) notFound();
   return (
-    <div className="pt-10">
-      <div className="pt-10 max-w-6xl mx-auto px-4 space-y-10">
-        {/* Project Name & Description */}
-        <div className="text-center space-y-2">
-          <h1 className="text-4xl font-bold">{project.title}</h1>
-          <p className="text-gray-600">{project.description}</p>
-          {/* project link  */}
-          <Badge className="px-3 py-1 bg-green-100 text-blue-800 rounded-full text-sm font-medium">
-            <Link href={`${project.link}`} target="blank">
-              Visit Project
-            </Link>
-          </Badge>
+    <main className="py-8">
+      <section className="grid gap-8 lg:grid-cols-[1.15fr_.85fr] lg:items-end">
+        <div>
+          <p className="eyebrow">Case study · 0{project.id}</p>
+          <h1 className="page-heading max-w-3xl">{project.title}</h1>
+          <p className="page-copy">{project.description}</p>
         </div>
-
-        <div className="w-full max-w-4xl mx-auto">
-          <Carousel className="w-full relative">
-            <CarouselContent className="flex gap-4">
+        <div className="glass rounded-2xl p-6">
+          <p className="text-xs font-semibold uppercase tracking-[.18em] text-slate-500">
+            Live product
+          </p>
+          <Link
+            href={project.link}
+            target="_blank"
+            className="mt-3 inline-flex items-center gap-2 text-lg font-semibold text-primary hover:text-cyan-200"
+          >
+            Visit project <ArrowUpRight size={18} />
+          </Link>
+          <p className="mt-5 text-sm leading-6 text-slate-400">
+            A scalable software product, designed to make complex operations
+            feel straightforward.
+          </p>
+        </div>
+      </section>
+      <section className="mt-12">
+        <div className="glass overflow-hidden rounded-3xl p-3 sm:p-5">
+          <Carousel className="relative w-full">
+            <CarouselContent>
               {project.children.images.map((img, index) => (
-                <CarouselItem key={index} className="flex-shrink-0 w-full h-96">
-                  <Card className="relative w-full h-full overflow-hidden rounded-xl">
+                <CarouselItem key={index}>
+                  <div className="relative aspect-[16/9] overflow-hidden rounded-2xl">
                     <Image
                       src={img}
-                      alt={`Project image ${index + 1}`}
+                      alt={`${project.title} interface ${index + 1}`}
                       fill
+                      priority={index === 0}
                       className="object-cover"
                     />
-                  </Card>
+                  </div>
                 </CarouselItem>
               ))}
             </CarouselContent>
-            {/* Navigation buttons */}
-            <CarouselPrevious className="absolute left-2 top-1/2 -translate-y-1/2 bg-white p-2 rounded-full shadow-lg z-10">
-              ◀
-            </CarouselPrevious>
-            <CarouselNext className="absolute right-2 top-1/2 -translate-y-1/2 bg-white p-2 rounded-full shadow-lg z-10">
-              ▶
-            </CarouselNext>
+            <CarouselPrevious className="left-5 border-white/10 bg-slate-950/85 text-white hover:bg-primary hover:text-slate-950" />
+            <CarouselNext className="right-5 border-white/10 bg-slate-950/85 text-white hover:bg-primary hover:text-slate-950" />
           </Carousel>
         </div>
-
-        {/* Technologies */}
-        <div>
-          <h2 className="text-2xl font-semibold mb-4">Technologies Used</h2>
-          <div className="flex flex-wrap gap-3">
-            {project.children.technologies.map((tech, idx) => (
-              <span
-                key={idx}
-                className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium"
+      </section>
+      <section className="mt-12 grid gap-10 lg:grid-cols-[.7fr_1.3fr]">
+        <aside>
+          <p className="eyebrow">Technology</p>
+          <h2 className="text-3xl font-semibold tracking-tight text-white">
+            Built with a modern stack.
+          </h2>
+          <div className="mt-6 flex flex-wrap gap-2">
+            {project.children.technologies.map((tech) => (
+              <Badge
+                key={tech}
+                className="border border-primary/25 bg-primary/10 px-3 py-1.5 text-primary hover:bg-primary/15"
               >
                 {tech}
-              </span>
+              </Badge>
             ))}
           </div>
-        </div>
-
-        {/* Features */}
-        <div className="space-y-6">
-          <h2 className="text-2xl font-semibold mb-4">Features</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {project.children.features.map((feature, idx) => (
-              <Card key={idx} className="border border-gray-200">
+        </aside>
+        <div>
+          <p className="eyebrow">Capabilities</p>
+          <h2 className="text-3xl font-semibold tracking-tight text-white">
+            What it delivers.
+          </h2>
+          <div className="mt-6 grid gap-4 md:grid-cols-2">
+            {project.children.features.map((feature, index) => (
+              <Card key={index} className="glass rounded-2xl">
                 <CardHeader>
-                  <CardTitle className="text-lg font-bold">
-                    {feature.title}
+                  <span className="mb-3 grid h-8 w-8 place-items-center rounded-lg bg-primary/10 text-primary">
+                    <CheckCircle2 size={17} />
+                  </span>
+                  <CardTitle className="text-lg text-white">
+                    {feature.title.replace(/^Feature \d+: /, "")}
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <ul className="list-disc list-inside space-y-1">
-                    {/* {feature.points?.map((point, id) => (
-                      <li key={id} className="text-gray-700">
-                        {point}
-                      </li>
-                    ))} */}
-                    {feature.subFeatures?.map((sub, id) => (
-                      <li key={id} className="text-gray-700">
-                        {sub}
+                  <ul className="space-y-3">
+                    {feature.subFeatures.map((item, itemIndex) => (
+                      <li
+                        key={itemIndex}
+                        className="text-sm leading-6 text-slate-400"
+                      >
+                        {item}
                       </li>
                     ))}
                   </ul>
@@ -109,13 +143,10 @@ export default async function Page({
             ))}
           </div>
         </div>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }
-
 export async function generateStaticParams() {
-  return projects.map((post) => ({
-    singleProject: post.id.toString(), // Must be string
-  }));
+  return projects.map((project) => ({ singleProject: project.id.toString() }));
 }
