@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Mail, User, MessageCircle, Send } from "lucide-react";
+import { Clock3, Github, Linkedin, Mail, MessageCircle, Send, User } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -105,26 +105,46 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen py-8 transition-colors">
-      <div className="mb-12"><p className="eyebrow">Get in touch</p><h1 className="page-heading">Let&apos;s make something excellent.</h1><p className="page-copy">Have a project in mind, or just want to connect? I&apos;d love to hear from you.</p></div>
+    <main className="min-h-screen py-8">
+      <div className="mb-12">
+        <p className="eyebrow">Get in touch</p>
+        <h1 className="page-heading">Let&apos;s build the next good thing.</h1>
+        <p className="page-copy">Tell me a little about your idea, team, or challenge. I&apos;ll get back to you as soon as I can.</p>
+      </div>
 
-      <Card className="glass w-full max-w-2xl rounded-3xl p-6">
-        <CardHeader>
-          <CardTitle className="flex items-center gap-3 text-2xl text-white">
-            <Mail className="h-7 w-7 text-blue-500" />
-            Let&apos;s Connect
+      <div className="grid max-w-5xl gap-6 lg:grid-cols-[.78fr_1.22fr]">
+        <aside className="glass rounded-3xl p-7 sm:p-8">
+          <div className="grid h-12 w-12 place-items-center rounded-2xl bg-primary text-primary-foreground"><MessageCircle size={22} /></div>
+          <h2 className="mt-7 text-2xl font-semibold tracking-tight text-foreground">Let&apos;s connect.</h2>
+          <p className="mt-3 leading-7 text-muted-foreground">Whether it&apos;s a new product, a technical problem, or a role you&apos;d like to discuss, my inbox is open.</p>
+          <div className="mt-8 space-y-4 border-y border-border py-6 text-sm">
+            <div className="flex items-center gap-3 text-muted-foreground"><Clock3 size={18} className="text-primary" /> Usually replies within 1–2 business days</div>
+            <div className="flex items-center gap-3 text-muted-foreground"><Mail size={18} className="text-primary" /> Send a note using the form</div>
+          </div>
+          <div className="mt-7 flex gap-3">
+            <a aria-label="GitHub profile" href="https://github.com/shawonislam1109" target="_blank" rel="noreferrer" className="grid h-11 w-11 place-items-center rounded-xl border border-border text-foreground transition-colors hover:border-primary hover:text-primary"><Github size={19} /></a>
+            <a aria-label="LinkedIn profile" href="https://www.linkedin.com/in/rabiyul-islam" target="_blank" rel="noreferrer" className="grid h-11 w-11 place-items-center rounded-xl border border-border text-foreground transition-colors hover:border-primary hover:text-primary"><Linkedin size={19} /></a>
+          </div>
+        </aside>
+
+        <Card className="glass rounded-3xl border-0 p-2 sm:p-4">
+        <CardHeader className="pb-5">
+          <CardTitle className="flex items-center gap-3 text-2xl text-foreground">
+            <Mail className="h-6 w-6 text-primary" />
+            Send a message
           </CardTitle>
+          <p className="pt-1 text-sm text-muted-foreground">Fields marked by the form are required.</p>
         </CardHeader>
 
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-5">
             {/* Name */}
             <div>
-              <label className="text-neutral-700 dark:text-neutral-300 font-medium">
+              <label className="font-medium text-foreground">
                 Your Name
               </label>
               <div className="flex items-center gap-2 mt-1">
-                <User className="h-5 w-5 text-blue-500" />
+                <User className="h-5 w-5 text-primary" />
                 <Input
                   type="text"
                   name="name"
@@ -132,7 +152,7 @@ const Contact = () => {
                   onChange={handleChange}
                   placeholder="Enter your name"
                   required
-                  className={`bg-white dark:bg-neutral-700 ${
+                  className={`bg-background ${
                     errors.name ? "border-red-500" : ""
                   }`}
                 />
@@ -144,11 +164,11 @@ const Contact = () => {
 
             {/* Email */}
             <div>
-              <label className="text-neutral-700 dark:text-neutral-300 font-medium">
+              <label className="font-medium text-foreground">
                 Email Address
               </label>
               <div className="flex items-center gap-2 mt-1">
-                <Mail className="h-5 w-5 text-blue-500" />
+                <Mail className="h-5 w-5 text-primary" />
                 <Input
                   type="email"
                   name="email"
@@ -156,7 +176,7 @@ const Contact = () => {
                   onChange={handleChange}
                   placeholder="example@gmail.com"
                   required
-                  className={`bg-white dark:bg-neutral-700 ${
+                  className={`bg-background ${
                     errors.email ? "border-red-500" : ""
                   }`}
                 />
@@ -168,18 +188,18 @@ const Contact = () => {
 
             {/* Message */}
             <div>
-              <label className="text-neutral-700 dark:text-neutral-300 font-medium">
+              <label className="font-medium text-foreground">
                 Message
               </label>
               <div className="flex items-center gap-2 mt-1">
-                <MessageCircle className="h-5 w-5 text-blue-500" />
+                <MessageCircle className="h-5 w-5 text-primary" />
                 <Textarea
                   name="message"
                   value={form.message}
                   onChange={handleChange}
                   placeholder="Write your message..."
                   required
-                  className={`bg-white dark:bg-neutral-700 ${
+                  className={`bg-background ${
                     errors.message ? "border-red-500" : ""
                   }`}
                 />
@@ -193,15 +213,16 @@ const Contact = () => {
             <Button
               type="submit"
               disabled={loading}
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-xl flex items-center justify-center gap-2"
+              className="flex w-full items-center justify-center gap-2 rounded-xl bg-primary py-3 font-semibold text-primary-foreground hover:bg-primary/90"
             >
               <Send className="h-5 w-5" />
               {loading ? "Sending..." : "Send Message"}
             </Button>
           </form>
         </CardContent>
-      </Card>
-    </div>
+        </Card>
+      </div>
+    </main>
   );
 };
 
